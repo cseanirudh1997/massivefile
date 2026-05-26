@@ -7,6 +7,5 @@ import { getSession } from './utils'
 
 export default function ProtectedRoute({ children }) {
   const { isLoggedIn } = getSession()
-  if (!isLoggedIn) return <Navigate to="/login" replace />
-  return children
+  return isLoggedIn ? children : <Navigate to="/login" replace />
 }

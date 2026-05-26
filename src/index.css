@@ -3,46 +3,36 @@
 @tailwind utilities;
 
 /* ─────────────────────────────────────────
-   Base / Global
+   Base
 ───────────────────────────────────────── */
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
   body {
     @apply bg-gray-950 text-gray-100 font-sans antialiased;
+    background: #030712;
   }
 
-  ::selection {
-    @apply bg-brand-600 text-white;
-  }
+  ::selection { @apply bg-brand-600 text-white; }
 
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-gray-900;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-brand-600 rounded-full;
-  }
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: #060f1a; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-700 rounded-full; }
+
+  * { box-sizing: border-box; }
 }
 
 /* ─────────────────────────────────────────
-   Reusable Component Classes
+   Component Classes
 ───────────────────────────────────────── */
 @layer components {
-  /* Glass card */
+
+  /* ── Glass ── */
   .glass {
-    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl;
+    @apply bg-white/[0.04] backdrop-blur-sm;
   }
 
-  .glass-dark {
-    @apply bg-black/40 backdrop-blur-sm border border-white/8 rounded-2xl;
-  }
-
-  /* Gradient text — electric cyan → violet */
+  /* ── Gradient text — cyan → violet ── */
   .gradient-text {
     @apply bg-gradient-to-r from-brand-400 via-accent-400 to-brand-300 bg-clip-text text-transparent;
   }
@@ -51,17 +41,16 @@
     @apply bg-gradient-to-r from-accent-400 to-brand-400 bg-clip-text text-transparent;
   }
 
-  /* Primary button — cyan gradient with glow pulse */
+  /* ── Buttons ── */
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl
            bg-gradient-to-r from-brand-600 to-accent-600
            text-white font-semibold text-sm
            transition-all duration-300
-           hover:scale-105 hover:from-brand-500 hover:to-accent-500
+           hover:scale-[1.03] hover:from-brand-500 hover:to-accent-500
            focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-gray-950
-           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(139, 92, 246, 0.15);
-    animation: btn-glow-pulse 8s ease-in-out infinite;
+           disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100;
+    animation: glow-pulse 6s ease-in-out infinite;
   }
 
   .btn-secondary {
@@ -69,23 +58,24 @@
            bg-transparent border border-white/10
            text-gray-300 font-semibold text-sm
            transition-all duration-300
-           hover:bg-white/5 hover:border-brand-500/40 hover:text-white hover:scale-105
-           focus:outline-none focus:ring-2 focus:ring-brand-500/30;
+           hover:bg-white/5 hover:border-brand-500/40 hover:text-white hover:scale-[1.02]
+           focus:outline-none focus:ring-2 focus:ring-brand-500/30
+           disabled:opacity-40 disabled:cursor-not-allowed;
   }
 
   .btn-ghost {
     @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg
-           text-gray-300 font-medium text-sm
+           text-gray-400 font-medium text-sm
            transition-all duration-200
-           hover:text-white hover:bg-white/10;
+           hover:text-white hover:bg-white/8;
   }
 
-  /* Section wrapper */
+  /* ── Layout ── */
   .section-wrapper {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Section badge */
+  /* ── Badges ── */
   .section-badge {
     @apply inline-flex items-center gap-2 px-3 py-1 rounded-full
            text-xs font-semibold tracking-widest uppercase
@@ -98,46 +88,45 @@
            bg-accent-900/40 border border-accent-700/40 text-accent-400;
   }
 
-  /* Card hover glow */
-  .card-glow {
-    @apply transition-all duration-300
-           hover:shadow-glow hover:border-brand-700/50 hover:-translate-y-1;
-  }
-
-  /* Input */
+  /* ── Input ── */
   .input-field {
     @apply w-full px-4 py-3 rounded-xl
-           bg-white/5 border border-white/10
-           text-white placeholder-gray-500
-           focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500
+           bg-white/[0.04] border border-white/10
+           text-white placeholder-gray-600 text-sm
+           focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500/50
            transition-all duration-200;
   }
 
-  /* Orb */
-  .orb {
-    @apply absolute rounded-full blur-3xl opacity-20 pointer-events-none;
-    will-change: filter;
+  /* select inherits input-field but needs explicit text color on options */
+  select.input-field option {
+    @apply bg-gray-900 text-white;
   }
 
-  /* Stat card */
-  .stat-card {
-    @apply glass border border-brand-700/20 p-4 rounded-xl text-center;
+  /* ── Orb ── */
+  .orb {
+    @apply absolute rounded-full blur-3xl pointer-events-none;
+    will-change: filter, transform;
+  }
+
+  /* ── Chat bubbles ── */
+  .chat-bubble-user {
+    @apply ml-auto max-w-[80%] px-4 py-2.5 rounded-2xl rounded-tr-sm
+           bg-gradient-to-r from-brand-600 to-accent-600 text-white text-sm leading-relaxed;
+  }
+
+  .chat-bubble-bot {
+    @apply mr-auto max-w-[80%] px-4 py-2.5 rounded-2xl rounded-tl-sm
+           bg-white/8 border border-white/10 text-gray-200 text-sm leading-relaxed;
   }
 }
 
 /* ─────────────────────────────────────────
-   Animated Background — deep dark enterprise
+   Animated background — deep enterprise dark
 ───────────────────────────────────────── */
 .animated-bg {
-  background: linear-gradient(
-    -45deg,
-    #030712,
-    #060f1f,
-    #030712,
-    #0b0e1f
-  );
+  background: linear-gradient(-45deg, #030712, #060f1f, #030712, #0a0e1e);
   background-size: 400% 400%;
-  animation: gradient-bg 14s ease infinite;
+  animation: gradient-bg 16s ease infinite;
 }
 
 @keyframes gradient-bg {
@@ -147,21 +136,21 @@
 }
 
 /* ─────────────────────────────────────────
-   Circuit Grid Background
+   Circuit grid
 ───────────────────────────────────────── */
 .circuit-grid {
   background-image:
-    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(rgba(34,211,238,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,211,238,0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 /* ─────────────────────────────────────────
    Dot grid
 ───────────────────────────────────────── */
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(34, 211, 238, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
+  background-image: radial-gradient(circle, rgba(34,211,238,0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 /* ─────────────────────────────────────────
@@ -171,21 +160,26 @@
   content: '|';
   animation: blink-caret 0.75s step-end infinite;
   color: #22d3ee;
-  margin-left: 2px;
+  margin-left: 1px;
+}
+
+@keyframes blink-caret {
+  from, to { opacity: 1; }
+  50%      { opacity: 0; }
 }
 
 /* ─────────────────────────────────────────
-   Shimmer loading
+   Shimmer loading skeleton
 ───────────────────────────────────────── */
 .shimmer {
   background: linear-gradient(
     90deg,
-    rgba(255,255,255,0.0) 0%,
-    rgba(255,255,255,0.05) 50%,
-    rgba(255,255,255,0.0) 100%
+    rgba(255,255,255,0)    0%,
+    rgba(255,255,255,0.04) 50%,
+    rgba(255,255,255,0)    100%
   );
   background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+  animation: shimmer 1.6s infinite;
 }
 
 @keyframes shimmer {
@@ -194,68 +188,36 @@
 }
 
 /* ─────────────────────────────────────────
-   Chatbot bubbles
+   Glow pulse keyframe (used by .btn-primary)
 ───────────────────────────────────────── */
-.chat-bubble-user {
-  @apply ml-auto max-w-xs px-4 py-2 rounded-2xl rounded-tr-sm
-         bg-gradient-to-r from-brand-600 to-accent-600 text-white text-sm;
-}
-
-.chat-bubble-bot {
-  @apply mr-auto max-w-xs px-4 py-2 rounded-2xl rounded-tl-sm
-         bg-white/10 border border-white/10 text-gray-200 text-sm;
-}
-
-/* ─────────────────────────────────────────
-   Primary button glow pulse
-───────────────────────────────────────── */
-@keyframes btn-glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(139, 92, 246, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 32px rgba(34, 211, 238, 0.5), 0 0 64px rgba(139, 92, 246, 0.25);
-  }
-}
-
-/* ─────────────────────────────────────────
-   Marquee
-───────────────────────────────────────── */
-@keyframes marquee-fwd {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-.marquee-fwd {
-  will-change: transform;
-  animation: marquee-fwd 35s linear infinite;
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(34,211,238,0.3), 0 0 40px rgba(139,92,246,0.15); }
+  50%      { box-shadow: 0 0 36px rgba(34,211,238,0.5), 0 0 72px rgba(139,92,246,0.25); }
 }
 
 /* ─────────────────────────────────────────
    Modal backdrop
 ───────────────────────────────────────── */
 .modal-backdrop {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 /* ─────────────────────────────────────────
-   Blink caret
+   Scroll progress bar (set by index.html script)
 ───────────────────────────────────────── */
-@keyframes blink-caret {
-  from, to { opacity: 1; }
-  50%      { opacity: 0; }
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 9999;
+  background: linear-gradient(to right, #22d3ee, #8b5cf6);
+  transition: width 0.1s linear;
 }
 
 /* ─────────────────────────────────────────
-   Respect user motion preferences
+   Reduce motion
 ───────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .btn-primary {
-    animation: none;
-    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
-  }
-  .animated-bg { animation: none; }
-  .shimmer     { animation: none; }
-  .marquee-fwd { animation: none; }
+  .btn-primary  { animation: none; }
+  .animated-bg  { animation: none; }
+  .shimmer      { animation: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
