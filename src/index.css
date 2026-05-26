@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   Base / Global
+───────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-950 text-gray-100 font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand-600 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-brand-600 rounded-full;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Reusable Component Classes
+───────────────────────────────────────── */
+@layer components {
+  /* Glass card */
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/40 backdrop-blur-sm border border-white/8 rounded-2xl;
+  }
+
+  /* Gradient text — electric cyan → violet */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 via-accent-400 to-brand-300 bg-clip-text text-transparent;
+  }
+
+  .gradient-text-violet {
+    @apply bg-gradient-to-r from-accent-400 to-brand-400 bg-clip-text text-transparent;
+  }
+
+  /* Primary button — cyan gradient with glow pulse */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl
+           bg-gradient-to-r from-brand-600 to-accent-600
+           text-white font-semibold text-sm
+           transition-all duration-300
+           hover:scale-105 hover:from-brand-500 hover:to-accent-500
+           focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-gray-950
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(139, 92, 246, 0.15);
+    animation: btn-glow-pulse 8s ease-in-out infinite;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl
+           bg-transparent border border-white/10
+           text-gray-300 font-semibold text-sm
+           transition-all duration-300
+           hover:bg-white/5 hover:border-brand-500/40 hover:text-white hover:scale-105
+           focus:outline-none focus:ring-2 focus:ring-brand-500/30;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg
+           text-gray-300 font-medium text-sm
+           transition-all duration-200
+           hover:text-white hover:bg-white/10;
+  }
+
+  /* Section wrapper */
+  .section-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section badge */
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full
+           text-xs font-semibold tracking-widest uppercase
+           bg-brand-900/40 border border-brand-700/40 text-brand-400;
+  }
+
+  .section-badge-violet {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full
+           text-xs font-semibold tracking-widest uppercase
+           bg-accent-900/40 border border-accent-700/40 text-accent-400;
+  }
+
+  /* Card hover glow */
+  .card-glow {
+    @apply transition-all duration-300
+           hover:shadow-glow hover:border-brand-700/50 hover:-translate-y-1;
+  }
+
+  /* Input */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl
+           bg-white/5 border border-white/10
+           text-white placeholder-gray-500
+           focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500
+           transition-all duration-200;
+  }
+
+  /* Orb */
+  .orb {
+    @apply absolute rounded-full blur-3xl opacity-20 pointer-events-none;
+    will-change: filter;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply glass border border-brand-700/20 p-4 rounded-xl text-center;
+  }
+}
+
+/* ─────────────────────────────────────────
+   Animated Background — deep dark enterprise
+───────────────────────────────────────── */
+.animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #030712,
+    #060f1f,
+    #030712,
+    #0b0e1f
+  );
+  background-size: 400% 400%;
+  animation: gradient-bg 14s ease infinite;
+}
+
+@keyframes gradient-bg {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* ─────────────────────────────────────────
+   Circuit Grid Background
+───────────────────────────────────────── */
+.circuit-grid {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ─────────────────────────────────────────
+   Dot grid
+───────────────────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(34, 211, 238, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+/* ─────────────────────────────────────────
+   Typing cursor
+───────────────────────────────────────── */
+.typing-cursor::after {
+  content: '|';
+  animation: blink-caret 0.75s step-end infinite;
+  color: #22d3ee;
+  margin-left: 2px;
+}
+
+/* ─────────────────────────────────────────
+   Shimmer loading
+───────────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.0) 0%,
+    rgba(255,255,255,0.05) 50%,
+    rgba(255,255,255,0.0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ─────────────────────────────────────────
+   Chatbot bubbles
+───────────────────────────────────────── */
+.chat-bubble-user {
+  @apply ml-auto max-w-xs px-4 py-2 rounded-2xl rounded-tr-sm
+         bg-gradient-to-r from-brand-600 to-accent-600 text-white text-sm;
+}
+
+.chat-bubble-bot {
+  @apply mr-auto max-w-xs px-4 py-2 rounded-2xl rounded-tl-sm
+         bg-white/10 border border-white/10 text-gray-200 text-sm;
+}
+
+/* ─────────────────────────────────────────
+   Primary button glow pulse
+───────────────────────────────────────── */
+@keyframes btn-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3), 0 0 40px rgba(139, 92, 246, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(34, 211, 238, 0.5), 0 0 64px rgba(139, 92, 246, 0.25);
+  }
+}
+
+/* ─────────────────────────────────────────
+   Marquee
+───────────────────────────────────────── */
+@keyframes marquee-fwd {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-fwd {
+  will-change: transform;
+  animation: marquee-fwd 35s linear infinite;
+}
+
+/* ─────────────────────────────────────────
+   Modal backdrop
+───────────────────────────────────────── */
+.modal-backdrop {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ─────────────────────────────────────────
+   Blink caret
+───────────────────────────────────────── */
+@keyframes blink-caret {
+  from, to { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ─────────────────────────────────────────
+   Respect user motion preferences
+───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary {
+    animation: none;
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+  .animated-bg { animation: none; }
+  .shimmer     { animation: none; }
+  .marquee-fwd { animation: none; }
+}
