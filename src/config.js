@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────
 
 export const API_URL =
-  'https://script.google.com/macros/s/YOUR_MASSIVEFILE_SCRIPT_ID/exec'
+  'https://script.google.com/macros/s/AKfycbzPBTRBb8kEGmckCJ8boQ7_BBPWYEFZk8Lt9luE8rgeKKuK3E-mIN4F8O3ITOvzNLwo/exec'
 
 export const COMPANY_NAME    = 'Massive'
 export const COMPANY_TAGLINE = 'Enterprise AI Infrastructure at Scale'
