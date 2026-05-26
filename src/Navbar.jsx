@@ -44,7 +44,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-gray-950/90 backdrop-blur-xl border-b border-white/8 shadow-glass'
+          ? 'bg-gray-950/90 backdrop-blur-xl border-b border-white/10 shadow-glass'
           : 'bg-transparent'
       }`}
     >
@@ -120,10 +120,10 @@ export default function Navbar() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: 'tween', duration: 0.25 }}
-              className="fixed inset-y-0 right-0 w-72 z-50 md:hidden bg-gray-950/98 backdrop-blur-xl border-l border-white/8 flex flex-col"
+              className="fixed inset-y-0 right-0 w-72 z-50 md:hidden bg-gray-950/95 backdrop-blur-xl border-l border-white/10 flex flex-col"
             >
               {/* Drawer header */}
-              <div className="flex items-center justify-between px-5 py-4 border-b border-white/8">
+              <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
                 <span className="font-display font-bold text-white">{COMPANY_NAME}</span>
                 <button onClick={() => setOpen(false)} className="p-1.5 text-gray-500 hover:text-white">
                   <X size={18} />
@@ -136,7 +136,7 @@ export default function Navbar() {
                   <button
                     key={label}
                     onClick={() => handleNav(href)}
-                    className="w-full text-left px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/8 transition-all font-medium"
+                    className="w-full text-left px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all font-medium"
                   >
                     {label}
                   </button>
@@ -144,7 +144,7 @@ export default function Navbar() {
               </div>
 
               {/* Auth section */}
-              <div className="px-4 pb-6 border-t border-white/8 pt-4 space-y-2">
+              <div className="px-4 pb-6 border-t border-white/10 pt-4 space-y-2">
                 {session.isLoggedIn ? (
                   <>
                     <div className="text-xs text-gray-600 px-2 mb-2 font-mono">{session.username}</div>

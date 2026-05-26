@@ -106,7 +106,7 @@ export default function Payments() {
                     className={`group relative glass rounded-2xl p-6 flex flex-col transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${
                       i === 1
                         ? 'border border-brand-600/40 shadow-glow'
-                        : 'border border-white/8 hover:border-brand-700/30'
+                        : 'border border-white/10 hover:border-brand-700/30'
                     }`}
                   >
                     {/* Popular badge */}

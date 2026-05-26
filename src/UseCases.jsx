@@ -114,7 +114,7 @@ export default function UseCases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
-              className={`group glass border border-white/8 rounded-2xl p-6 transition-all duration-300 hover:scale-[1.015] ${bg}`}
+              className={`group glass border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:scale-[1.015] ${bg}`}
             >
               <div className="flex items-center gap-3 mb-4">
                 <Icon size={16} className={color} />
@@ -131,7 +131,7 @@ export default function UseCases() {
                   </li>
                 ))}
               </ul>
-              <div className={`text-xs font-semibold font-mono ${color} bg-white/5 border border-white/8 rounded-lg px-3 py-1.5 inline-block`}>
+              <div className={`text-xs font-semibold font-mono ${color} bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 inline-block`}>
                 {metric}
               </div>
             </motion.div>

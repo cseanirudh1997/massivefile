@@ -183,7 +183,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5 + i * 0.08 }}
-                  className="glass border border-white/8 rounded-xl p-3 text-center"
+                  className="glass border border-white/10 rounded-xl p-3 text-center"
                 >
                   <Icon size={13} className="text-brand-400 mx-auto mb-1.5" />
                   <div className="font-display font-bold text-white text-lg leading-none">{value}</div>

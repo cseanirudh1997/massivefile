@@ -13,7 +13,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-white/6 bg-gray-950/80">
+    <footer className="border-t border-white/5 bg-gray-950/80">
       <div className="section-wrapper py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
 
@@ -37,7 +37,7 @@ export default function Footer() {
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-lg glass border border-white/8 flex items-center justify-center text-gray-600 hover:text-brand-400 hover:border-brand-700/40 transition-all"
+                    className="w-8 h-8 rounded-lg glass border border-white/10 flex items-center justify-center text-gray-600 hover:text-brand-400 hover:border-brand-700/40 transition-all"
                   >
                     <Icon size={13} />
                   </a>

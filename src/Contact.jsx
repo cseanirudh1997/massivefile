@@ -112,8 +112,8 @@ export default function Contact() {
               { icon: Building2, label: 'Best for',  value: 'Enterprises with 20+ team'},
               { icon: Clock,     label: 'Go-live',   value: '30-day deployment target' },
             ].map(({ icon: Icon, label, value }) => (
-              <div key={label} className="glass border border-white/8 rounded-xl p-4 flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-brand-600/15 border border-brand-700/20 flex items-center justify-center shrink-0">
+              <div key={label} className="glass border border-white/10 rounded-xl p-4 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-brand-600/20 border border-brand-700/20 flex items-center justify-center shrink-0">
                   <Icon size={14} className="text-brand-400" />
                 </div>
                 <div>
@@ -149,7 +149,7 @@ export default function Contact() {
             transition={{ duration: 0.5 }}
           >
             {/* Tab switcher */}
-            <div className="flex gap-1 p-1 glass border border-white/8 rounded-xl w-fit mb-6">
+            <div className="flex gap-1 p-1 glass border border-white/10 rounded-xl w-fit mb-6">
               {[
                 { id: 'lead',    label: 'Book Enterprise Demo' },
                 { id: 'contact', label: 'General Enquiry'      },
@@ -170,7 +170,7 @@ export default function Contact() {
 
             {/* ── Lead Form ── */}
             {tab === 'lead' && (
-              <form onSubmit={submitLead} className="glass border border-white/8 rounded-2xl p-6 space-y-4" noValidate>
+              <form onSubmit={submitLead} className="glass border border-white/10 rounded-2xl p-6 space-y-4" noValidate>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-medium text-gray-400 mb-1.5">Full Name *</label>
@@ -223,7 +223,7 @@ export default function Contact() {
 
             {/* ── Contact Form ── */}
             {tab === 'contact' && (
-              <form onSubmit={submitContactForm} className="glass border border-white/8 rounded-2xl p-6 space-y-4" noValidate>
+              <form onSubmit={submitContactForm} className="glass border border-white/10 rounded-2xl p-6 space-y-4" noValidate>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-medium text-gray-400 mb-1.5">Name *</label>

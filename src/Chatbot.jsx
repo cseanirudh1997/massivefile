@@ -112,7 +112,7 @@ export default function Chatbot() {
             style={{ maxHeight: '520px' }}
           >
             {/* Header */}
-            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/8 bg-gradient-to-r from-brand-950/60 to-accent-950/40 shrink-0">
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10 bg-gradient-to-r from-brand-950/60 to-accent-950/40 shrink-0">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-500 to-accent-600 flex items-center justify-center shadow-glow-sm shrink-0">
                 <Zap size={15} className="text-white" />
               </div>
@@ -162,7 +162,7 @@ export default function Chatbot() {
                     <button
                       key={s}
                       onClick={() => sendMessage(s)}
-                      className="text-left text-xs px-3 py-2 rounded-xl glass border border-white/8 text-gray-400 hover:text-brand-300 hover:border-brand-700/30 transition-all"
+                      className="text-left text-xs px-3 py-2 rounded-xl glass border border-white/10 text-gray-400 hover:text-brand-300 hover:border-brand-700/30 transition-all"
                     >
                       {s}
                     </button>
@@ -174,7 +174,7 @@ export default function Chatbot() {
             </div>
 
             {/* Input */}
-            <div className="px-3 py-3 border-t border-white/8 flex gap-2 shrink-0 bg-gray-950/60">
+            <div className="px-3 py-3 border-t border-white/10 flex gap-2 shrink-0 bg-gray-950/60">
               <input
                 ref={inputRef}
                 type="text"

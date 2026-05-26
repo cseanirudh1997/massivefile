@@ -61,7 +61,7 @@ export default function ProductShowcase() {
         </motion.div>
 
         {loading ? (
-          <div className="max-w-4xl mx-auto aspect-video rounded-2xl shimmer bg-white/5 border border-white/8" />
+          <div className="max-w-4xl mx-auto aspect-video rounded-2xl shimmer bg-white/5 border border-white/10" />
         ) : (
           <div className="max-w-4xl mx-auto">
             <div className="relative rounded-2xl overflow-hidden border border-brand-700/30 shadow-glow aspect-video">

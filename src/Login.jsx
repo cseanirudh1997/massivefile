@@ -49,7 +49,7 @@ export default function Login() {
   return (
     <div className="min-h-screen animated-bg circuit-grid flex items-center justify-center p-4 relative overflow-hidden">
       {/* Orbs */}
-      <div className="orb w-96 h-96 bg-accent-600/15 -top-24 -left-24" />
+      <div className="orb w-96 h-96 bg-accent-600/20 -top-24 -left-24" />
       <div className="orb w-72 h-72 bg-brand-500/10 bottom-0 -right-12" />
 
       <motion.div

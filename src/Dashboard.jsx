@@ -67,7 +67,7 @@ function StatCard({ icon: Icon, label, value, sub, trend, color = 'text-brand-40
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
-      className="glass border border-white/8 rounded-xl p-5"
+      className="glass border border-white/10 rounded-xl p-5"
     >
       <div className="flex items-center justify-between mb-3">
         <span className="text-xs text-gray-500">{label}</span>
@@ -126,7 +126,7 @@ export default function Dashboard() {
     <div className="min-h-screen animated-bg circuit-grid">
 
       {/* Top bar */}
-      <header className="sticky top-0 z-40 bg-gray-950/90 backdrop-blur-md border-b border-white/8">
+      <header className="sticky top-0 z-40 bg-gray-950/90 backdrop-blur-md border-b border-white/10">
         <div className="section-wrapper flex items-center justify-between h-14 gap-4">
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-brand-500 to-accent-600 flex items-center justify-center shadow-glow-sm">
@@ -141,7 +141,7 @@ export default function Dashboard() {
             <span className="text-xs px-2 py-0.5 rounded-full bg-brand-900/40 border border-brand-700/25 text-brand-400 font-mono shrink-0">{tier}</span>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-1.5 text-xs text-red-400 hover:text-red-300 glass border border-white/8 px-2.5 py-1.5 rounded-lg transition-colors shrink-0"
+              className="flex items-center gap-1.5 text-xs text-red-400 hover:text-red-300 glass border border-white/10 px-2.5 py-1.5 rounded-lg transition-colors shrink-0"
             >
               <LogOut size={12} /> Sign Out
             </button>
@@ -160,7 +160,7 @@ export default function Dashboard() {
         </div>
 
         {/* Tab bar */}
-        <div className="flex gap-1 p-1 glass border border-white/8 rounded-xl w-fit mb-8 overflow-x-auto">
+        <div className="flex gap-1 p-1 glass border border-white/10 rounded-xl w-fit mb-8 overflow-x-auto">
           {TABS.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -190,7 +190,7 @@ export default function Dashboard() {
             {/* Charts row */}
             <div className="grid lg:grid-cols-3 gap-5">
               {/* API calls area chart */}
-              <div className="lg:col-span-2 glass border border-white/8 rounded-2xl p-5">
+              <div className="lg:col-span-2 glass border border-white/10 rounded-2xl p-5">
                 <p className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
                   <Activity size={13} className="text-brand-400" /> API Calls — Last 7 Days
                 </p>
@@ -212,7 +212,7 @@ export default function Dashboard() {
               </div>
 
               {/* Category distribution pie */}
-              <div className="glass border border-white/8 rounded-2xl p-5">
+              <div className="glass border border-white/10 rounded-2xl p-5">
                 <p className="text-sm font-semibold text-white mb-4">Usage by Product</p>
                 <ResponsiveContainer width="100%" height={140}>
                   <PieChart>
@@ -239,7 +239,7 @@ export default function Dashboard() {
             </div>
 
             {/* Latency bar chart */}
-            <div className="glass border border-white/8 rounded-2xl p-5">
+            <div className="glass border border-white/10 rounded-2xl p-5">
               <p className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
                 <TrendingUp size={13} className="text-accent-400" /> Response Latency ms — Last 7 Days
               </p>
@@ -277,7 +277,7 @@ export default function Dashboard() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.04 }}
-                      className="glass border border-white/8 rounded-xl p-4 flex items-center gap-4"
+                      className="glass border border-white/10 rounded-xl p-4 flex items-center gap-4"
                     >
                       <Icon size={15} className={`${color} shrink-0`} />
                       <div className="flex-1 min-w-0">
@@ -287,7 +287,7 @@ export default function Dashboard() {
                             <span className="text-xs px-2 py-0.5 rounded-full bg-brand-600/20 border border-brand-600/30 text-brand-300">Featured</span>
                           )}
                           {p.category && (
-                            <span className="text-xs px-2 py-0.5 rounded-full bg-white/5 border border-white/8 text-gray-500">{p.category}</span>
+                            <span className="text-xs px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-gray-500">{p.category}</span>
                           )}
                         </div>
                         <p className="text-xs text-gray-600 mt-0.5 truncate">{p.description}</p>
@@ -319,7 +319,7 @@ export default function Dashboard() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.04 }}
-                      className="glass border border-white/8 rounded-xl p-4 flex items-center justify-between gap-4"
+                      className="glass border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4"
                     >
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-semibold text-white">{l.title}</p>
@@ -357,7 +357,7 @@ export default function Dashboard() {
             <p className="text-sm text-gray-500 flex items-center gap-2 mb-4">
               <Settings size={13} className="text-gray-500" /> Platform configuration (read-only)
             </p>
-            <div className="glass border border-white/8 rounded-xl overflow-hidden">
+            <div className="glass border border-white/10 rounded-xl overflow-hidden">
               {Object.entries(config).length === 0 ? (
                 <div className="px-4 py-6 text-center text-sm text-gray-600">No config loaded.</div>
               ) : (
@@ -370,7 +370,7 @@ export default function Dashboard() {
                     <span className={`text-xs font-mono px-2.5 py-0.5 rounded-lg ${
                       value === 'true'  ? 'bg-emerald-900/30 text-emerald-400 border border-emerald-700/20' :
                       value === 'false' ? 'bg-red-900/30 text-red-400 border border-red-700/20' :
-                      'bg-white/5 text-gray-300 border border-white/8'
+                      'bg-white/5 text-gray-300 border border-white/10'
                     }`}>
                       {value || '—'}
                     </span>

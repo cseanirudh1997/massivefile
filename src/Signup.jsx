@@ -51,7 +51,7 @@ export default function Signup() {
   return (
     <div className="min-h-screen animated-bg circuit-grid flex items-center justify-center p-4 relative overflow-hidden">
       {/* Orbs */}
-      <div className="orb w-96 h-96 bg-brand-500/15 -top-24 -right-24" />
+      <div className="orb w-96 h-96 bg-brand-500/20 -top-24 -right-24" />
       <div className="orb w-72 h-72 bg-accent-600/10 bottom-0 -left-12" />
 
       <motion.div

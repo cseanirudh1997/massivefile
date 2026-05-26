@@ -33,8 +33,8 @@ function SkeletonCard() {
       <div className="h-5 w-3/4 shimmer bg-white/5 rounded-full" />
       <div className="space-y-2">
         <div className="h-3 shimmer bg-white/5 rounded-full" />
-        <div className="h-3 w-5/6 shimmer bg-white/5 rounded-full" />
-        <div className="h-3 w-4/6 shimmer bg-white/5 rounded-full" />
+        <div className="h-3 w-5/5 shimmer bg-white/5 rounded-full" />
+        <div className="h-3 w-4/5 shimmer bg-white/5 rounded-full" />
       </div>
       <div className="h-9 shimmer bg-white/5 rounded-xl" />
     </div>
@@ -54,7 +54,7 @@ function ProductCard({ product, asset, index }) {
       className={`group relative glass rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${
         isFeatured
           ? 'border border-brand-600/40 shadow-glow'
-          : 'border border-white/8 hover:border-brand-700/30'
+          : 'border border-white/10 hover:border-brand-700/30'
       }`}
     >
       {/* Product image */}
@@ -181,7 +181,7 @@ export default function Products() {
                 className={`px-4 py-1.5 rounded-full text-xs font-semibold capitalize transition-all duration-200 ${
                   filter === cat
                     ? 'bg-brand-600/30 border border-brand-600/40 text-white'
-                    : 'glass border border-white/8 text-gray-500 hover:text-white hover:border-brand-700/30'
+                    : 'glass border border-white/10 text-gray-500 hover:text-white hover:border-brand-700/30'
                 }`}
               >
                 {cat === 'all' ? 'All Products' : cat}

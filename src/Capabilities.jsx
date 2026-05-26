@@ -92,7 +92,7 @@ export default function Capabilities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
-              className={`group glass border border-white/8 rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] ${border}`}
+              className={`group glass border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] ${border}`}
             >
               <div className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 ${iconBg}`}>
                 <Icon size={18} />
@@ -103,7 +103,7 @@ export default function Capabilities() {
               <p className="text-xs text-gray-500 leading-relaxed mb-4">{description}</p>
               <div className="flex flex-wrap gap-1.5">
                 {tags.map(tag => (
-                  <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-white/5 border border-white/8 text-gray-500">
+                  <span key={tag} className="text-xs px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-gray-500">
                     {tag}
                   </span>
                 ))}
