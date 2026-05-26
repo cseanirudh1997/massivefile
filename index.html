@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Massive — Enterprise AI Infrastructure. Voice Agents, Copilots, RAG Systems, Workflow Automation, and Agent Orchestration at scale." />
+    <meta name="theme-color" content="#22d3ee" />
+
+    <!-- Google Fonts: Inter + Space Grotesk + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <title>Massive — Enterprise AI Infrastructure</title>
+
+    <!-- Scroll progress bar -->
+    <style>
+      #scroll-progress {
+        position: fixed; top: 0; left: 0; height: 3px;
+        background: linear-gradient(to right, #22d3ee, #8b5cf6);
+        z-index: 9999; width: 0%; transition: width 0.1s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scroll-progress"></div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener('scroll', () => {
+        const el = document.getElementById('scroll-progress')
+        if (!el) return
+        const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
+        el.style.width = Math.min(pct, 100) + '%'
+      })
+    </script>
+  </body>
+</html>
